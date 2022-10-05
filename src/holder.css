@@ -1,0 +1,53 @@
+.holder {
+    width: 100%;
+    height: inherit;
+    background-color: #101024;
+    border-radius: 10px;
+    margin: auto;
+    text-align: center;
+}
+
+.h4, .h5, h6 {
+    color: #F3BC17;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.input {
+    background-color: #101024;
+    border: none;
+    border-bottom: #eee 2px solid;
+    border-radius: none;
+    display: block;
+    width: 100%;
+    margin: 20px 0;
+    padding: 10px;
+    outline: none;
+    color: #F3BC17;
+}
+.btnn {
+    width: 80%;
+    border: none;
+    outline: none;
+    background-color: #0b0b51;
+    color: #F3BC17;
+    padding: 10px;
+    margin: 10px;
+    border-radius: 15px;
+}
+button {
+    /* border: #0b0b51 2px solid; */
+    color: #0b0b51;
+    padding: 5px 10px;
+    margin: 10px;
+    background-color: #F3BC17;
+    border: none;
+}
+.btnn-2 {
+    color: #F3BC17;
+    background-color: #0b0b51;
+    padding: 5px 10px;
+    margin: 10px;
+    border: none;
+}
+.card {
+    background-color: #050325;
+}

@@ -1,0 +1,27 @@
+.App {
+  background-color: #101024;
+  width: 100%;
+  height: inherit;
+
+}
+#page {
+  width: 100%;
+  height: inherit;
+  padding: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.page_img {
+  width: 50%;
+
+}
+.img-holder {
+  margin: auto;
+  border: #fff solid 1px;
+  width: 100%;
+  height: 50vh; 
+}
+#input-img[type="file"] {
+  display: none;
+}
