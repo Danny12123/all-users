@@ -18,10 +18,6 @@ const FormCom = (props) => {
         try{
               await setDoc(doc(db, "users", allusers.id),allusers);
         }catch(e){console.log(e);}
-
-        // Add a new document in collection "cities"
-       
-
 		// props.ADDNEW_USER({ name, contact, location, id: uuidv4() });
 		setName("");
 		setContact("");

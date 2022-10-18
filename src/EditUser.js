@@ -2,9 +2,9 @@ import React, { useState } from "react";
 import { Form } from "react-bootstrap";
 import "./edit.css";
 import {EDITUSER} from "./Action/Eidtuser";
-
-
 import { useDispatch } from "react-redux";
+import { doc, deleteDoc, updateDoc } from "firebase/firestore";
+import { db } from "./firebase/configuer";
 
 const EditUser = (props) => {
      const dispatch = useDispatch();
@@ -12,8 +12,15 @@ const EditUser = (props) => {
 	const [contact, setContact] = useState(props.userContact.contact);
 	const [location, setLocation] = useState(props.userContact.location);
 
-	const handleSubmit = (e) => {
+	const handleSubmit = async(e) => {
 		e.preventDefault();
+        let userInfo = { id: props.userContact.id, name, contact, location };
+        try {
+        const userRef = doc(db, "users", props.userContact.id);
+        await updateDoc(userRef, userInfo);
+        } catch (error) {
+        console.log(error);
+        }
          dispatch(EDITUSER({ id: props.userContact.id, name, contact, location }));
 		// props.EDITUSER( props.userContact.id, { name, contact, location });
 		setName("");

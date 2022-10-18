@@ -4,10 +4,15 @@ import { Card, Col } from "react-bootstrap";
 import EditUser from './EditUser';
 import {DELETEUSER} from "./Action/UserAction";
 import { connect } from 'react-redux';
+import { doc, deleteDoc, updateDoc } from "firebase/firestore";
+import { db } from "./firebase/configuer";
 
 function User(props) {
-	const headleEdit = () => {
-		props.DELETEUSER(props.userContact.id);
+	const headleEdit = async() => {
+		await deleteDoc(doc(db, "users", props.userContact.id));
+		// props.DELETEUSER(props.userContact.id);
+	}
+		// props.DELETEUSER(props.userContact.id);
 	}
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
