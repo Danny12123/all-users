@@ -4,8 +4,8 @@ import { Row, Container } from "react-bootstrap";
 import { connect, useSelector } from "react-redux";
 
 function Contact(props) {
-    const {users} =  useSelector((state) => {
-        return state
+    const users =  useSelector((state) => {
+        return state.Reducer.users;
     }) 
 	return (
         <div>

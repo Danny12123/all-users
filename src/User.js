@@ -13,7 +13,7 @@ function User(props) {
 		// props.DELETEUSER(props.userContact.id);
 	}
 		// props.DELETEUSER(props.userContact.id);
-	}
+	
 	const [show, setShow] = useState(false);
 	const handleClose = () => setShow(false);
 	const handleShow = () => setShow(true);
@@ -27,7 +27,7 @@ function User(props) {
 				<EditUser editUser={props.editUser} userContact={props.userContact}  />
 				
 			</Modal>
-			<Col  style={{ width: "12rem", marginBottom: "10px" }}>
+			<Col  style={{ width: "22rem", marginBottom: "10px" }}>
 				<Card className="card">
 					<Card.Body>
 						<Card.Title><h5 className="h5">Name:{props.userContact.name}</h5></Card.Title>
@@ -47,9 +47,6 @@ function User(props) {
 		</>
 	);
 }
-const mapD = {
 
-	DELETEUSER,
-}
 
-export default connect(null, mapD)(User);
+export default User;

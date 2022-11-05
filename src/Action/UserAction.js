@@ -11,3 +11,9 @@ export const DELETEUSER = (id) => {
     }
 }
 
+export const USER = (user) => {
+    return {
+        type: "NEW_USER",
+        payload: user,
+    }
+}

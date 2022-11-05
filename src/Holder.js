@@ -51,16 +51,17 @@ const Holder = () => {
   // }
 
   return (
-    <div className='holder'>
-        <Container>
-            <FormCom 
-            //  newContact={addContact} 
-            />
-            <Contact 
-            // contactData={usersContact} delete={deleteUser} editUser={Edituser}
-             />
-        </Container>
-      
+    <div id='main-holder'>
+      <div className='holder'>
+          <Container>
+              <FormCom 
+              //  newContact={addContact} 
+              />
+              <Contact 
+              // contactData={usersContact} delete={deleteUser} editUser={Edituser}
+              />
+          </Container>
+      </div>
     </div>
   )
 }
