@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {  Container } from 'react-bootstrap';
 import FormCom from './FormCom';
 import Contact from './Contact';
 import "./holder.css";
 import {ADDNEW_USER} from './Action/UserAction'
-import { collection, query, onSnapshot,  orderBy } from "firebase/firestore";
+import { collection, query, onSnapshot } from "firebase/firestore";
 import { db } from "./firebase/configuer";
 import { useDispatch } from "react-redux";
 

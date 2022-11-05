@@ -1,17 +1,15 @@
 import React from "react";
-import { connect } from "react-redux";
 import { Navigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const ProtectedRoute = ({ children, user }) =>  {
-	if (!user) {
-		return <Navigate to="/login" replace="true" />;
+const ProtectedRoute = ({ children }) =>  {
+	const  users = useSelector((state) => {
+    return state.usersReducer.user
+  });
+	if (!users) {
+		return <Navigate to="/login" />;
 	}
 	return children;
 }
 
-const mapStateToProps = (state) => {
-	return {
-		user: state.usersReducer.user,
-	};
-};
-export default connect(mapStateToProps)(ProtectedRoute);
+export default ProtectedRoute;

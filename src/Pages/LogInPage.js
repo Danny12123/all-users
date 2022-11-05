@@ -1,4 +1,5 @@
-import React, {useState} from 'react';
+import React, {useState,useEffect} from 'react';
+import { useSelector } from "react-redux";
 import "./styles.css";
 import {
 	signInWithEmailAndPassword,
@@ -7,33 +8,37 @@ import {
 } from "firebase/auth";
 import { auth } from "../firebase/configuer";
 import { useNavigate } from "react-router-dom";
-import { async } from '@firebase/util';
 const LogInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const provider = new GoogleAuthProvider();
 	const navigate = useNavigate();
+	const  users = useSelector((state) => {
+    return state.usersReducer.user
+  });
+  useEffect(() => {
+    if (users) {
+      navigate("/home");
+    }
+  }, [users, navigate]);
   const loginHandler = async(e) => {
     e.preventDefault();
 		try {
-			const user = await signInWithEmailAndPassword(auth, email, password);
-			console.log(user);
-			navigate("/home", { replace: true });
-		} catch (e) {
-			console.log(e);
-		}
+      signInWithEmailAndPassword(auth, email, password);
+    } catch (error) {
+      console.log(error.message);
+    }
 		setEmail("");
 		setPassword("");
   }
   const google = async (e) => {
 		e.preventDefault();
-		try {
-			const user = await signInWithPopup(auth, provider);
-			console.log(user);
-			navigate("/home", { replace: true });
-		} catch (e) {
-			console.log(e);
-		}
+		 try {
+      const provider = new GoogleAuthProvider();
+      await signInWithPopup(auth, provider);
+      navigate("/home");
+    } catch (error) {
+      console.log(error);
+    }
 		setEmail("");
 		setPassword("");
 	};
